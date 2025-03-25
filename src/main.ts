@@ -6,6 +6,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { provideIonicAngular } from '@ionic/angular/standalone';
+import { routes } from './app/app.routes';
+import { provideRouter } from '@angular/router';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -13,5 +15,6 @@ bootstrapApplication(AppComponent, {
     provideFirebaseApp(() => initializeApp(environment)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideRouter(routes),
   ],
 });
