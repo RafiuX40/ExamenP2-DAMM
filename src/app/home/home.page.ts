@@ -50,5 +50,7 @@ export class HomePage {
       await alert.present();
     }
   }
-
+  onEdit(){
+    this.router.navigateByUrl("edit")
+  }
 }
