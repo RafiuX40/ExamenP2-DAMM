@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCardTitle } 
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
