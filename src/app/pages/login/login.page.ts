@@ -28,7 +28,13 @@ export class LoginPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Login Success',
         message: 'You have logged in successfully',
-        buttons: ['OK'],
+        buttons: [{
+          text: 'OK',
+          handler: () => {
+            this.router.navigate(["/home"]);
+          }
+        }]
+
       });
       await alert.present();
     } else {
@@ -47,11 +53,11 @@ export class LoginPage implements OnInit {
   }
 
   onSignUp() {
-    this.router.navigateByUrl("sign-up")
+    this.router.navigate(["/sign-up"])
   }
 
   onReset() {
-    this.router.navigateByUrl("forgot-password")
+    this.router.navigate(["/reset-password"])
   }
 
 }
