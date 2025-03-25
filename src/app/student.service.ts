@@ -21,5 +21,24 @@ export interface Student {
 })
 export class StudentService {
 
-  constructor() { }
+  constructor(private firestore: Firestore) {}
+
+  addStudent(student: Student) {
+    return addDoc(collection(this.firestore, 'students'), student);
+  }
+
+  getStudents(): Observable<Student[]> {
+    return collectionData(collection(this.firestore, 'students'), { idField: 'id' }) as Observable<Student[]>;
+  }
+
+  updateStudent(id: string, student: Student) {
+    const studentDoc = doc(this.firestore, 'students', id);
+    return updateDoc(studentDoc, {student});
+  }
+
+  deleteStudent(id: string) {
+    const studentDoc = doc(this.firestore, 'students', id);
+    return deleteDoc(studentDoc);
+  }
+
 }
